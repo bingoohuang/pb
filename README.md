@@ -1,11 +1,11 @@
 # Terminal progress bar for Go
 
-[![Coverage Status](https://coveralls.io/repos/github/cheggaaa/pb/badge.svg)](https://coveralls.io/github/cheggaaa/pb)
+fork from [cheggaaa/pb/v3](github.com/cheggaaa/pb/v3).
 
 ## Installation
 
 ```
-go get github.com/cheggaaa/pb/v3
+go get github.com/bingoohunag/pb
 ```
 
 Documentation for v1 bar available [here](README_V1.md).
