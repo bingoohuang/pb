@@ -165,7 +165,7 @@ func getProgressObj(state *State, args ...string) (p *bar) {
 // In template use as follows: {{bar . }} or {{bar . "<" "oOo" "|" "~" ">"}}
 // Color args: {{bar . (red "[") (green "-") ...
 var ElementBar ElementFunc = func(state *State, args ...string) string {
-	if tm, ok := state.vars[Terminal].(bool); ok && tm {
+	if tm, ok := state.vars[Terminal].(bool); !ok || !tm {
 		return ""
 	}
 
