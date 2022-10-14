@@ -13,7 +13,10 @@ func main() {
 	first := pb.Full.New(1000).Set("prefix", "First ").SetMaxWidth(100)
 	second := pb.Full.New(1000).Set("prefix", "Second").SetMaxWidth(100)
 	third := pb.Full.New(1000).Set("prefix", "Third ").SetMaxWidth(100)
-	pool.Start(first, second, third)
+	if err := pool.Start(first, second, third); err == nil {
+		defer pool.Stop()
+	}
+
 	wg := new(sync.WaitGroup)
 	for _, bar := range []*pb.ProgressBar{first, second, third} {
 		wg.Add(1)
