@@ -52,7 +52,11 @@ func (p *Pool) Add(pbs ...*ProgressBar) {
 	}
 }
 
-func (p *Pool) Start() (err error) {
+func (p *Pool) Start(pbs ...*ProgressBar) (err error) {
+	if len(pbs) > 0 {
+		p.Add(pbs...)
+	}
+
 	p.RefreshRate = defaultRefreshRate
 	p.shutdownCh, err = termutil.RawModeOn()
 	if err != nil {
