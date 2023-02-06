@@ -156,6 +156,8 @@ func (pb *ProgressBar) configure() {
 	if pb.vars[ReturnSymbol] == nil {
 		if tm, ok := pb.vars[Terminal].(bool); ok && tm {
 			pb.vars[ReturnSymbol] = "\r"
+		} else {
+			pb.vars[ReturnSymbol] = "\n"
 		}
 	}
 	if pb.vars[Color] == nil {
